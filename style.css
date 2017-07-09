@@ -1,0 +1,37 @@
+body {
+	display: block;
+	background-color: #f2f2f2;
+}
+
+#logo {
+	display: flex;
+	flex-direction: column;
+	font-family: Raleway;
+	font-size: 60px;
+	align-items: center;
+	text-align: center;
+}
+
+#logo img {
+	height: 150px;
+	width: 150px;
+	margin-top: -1%;
+	margin-bottom: -40px;
+
+}
+
+#nav-bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	background-color: WHITE;
+}
+
+.button {
+	font-family: Raleway;
+	/*padding-left: 2.5%*/
+	padding-right: 2.5%;
+	text-align: center;
+
+}
