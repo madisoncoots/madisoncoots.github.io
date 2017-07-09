@@ -59,8 +59,8 @@ body {
 
 @media (max-width: 1100px) {
   #nav-bar {
-  	padding-left: 0px;
-	padding-right: 0px;
+  	padding-left: 5px;
+	padding-right: 5px;
   }
 }
 
