@@ -3,6 +3,8 @@ body {
 -moz-font-smoothing: antialiased;
 -o-font-smoothing: antialiased;
 margin: 0;
+width: 100%;
+height: 100%;
 }
 
 #header {
@@ -11,6 +13,7 @@ margin: 0;
 	justify-content: center;
 	background-color: BLACK;
 	height: 90px;
+	width: 100%;
 }
 
 #wrapper {
@@ -27,6 +30,11 @@ margin: 0;
 	font-weight: 200;
 	margin: 0;
 	letter-spacing: 3px;
+}
+
+#logo {
+	width:5vw;
+	padding-right: 1vw;
 }
 
 .tab {
@@ -75,6 +83,8 @@ margin: 0;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 10vh;
+	width: 100%;
+	height: 100%;
 }
 
 #about {
@@ -121,12 +131,25 @@ margin: 0;
 	margin-bottom: 1vh;
 }
 
-.item {
+.item-reg {
 	font-family: 'Source Code Pro';
 	font-size: 14px;
 	font-weight: 400;
 	letter-spacing:1px;
 	line-height: 1.7em;
+	font-weight:300;
+	text-indent: 50px;
+}
+
+.item-bold {
+	font-family: 'Source Code Pro';
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing:1px;
+	line-height: 1.7em;
+	font-weight:500;
+	text-indent: 25px;
+	margin-top: 5px;
 }
 
 .item_box {
@@ -156,6 +179,10 @@ margin: 0;
 	outline: 3px solid #e1eeef;
 }
 
+.proj-pic {
+	width:10vw;
+}
+
 #footer {
 	display: flex;
 	align-items: center;
@@ -167,20 +194,71 @@ margin: 0;
 	font-size: 10px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 450px) {
 	body {
-
+		width: 375px;;
 	}
 	#header {
 		justify-content: space-between;
+		width: auto;
+		height: auto;
+		align-items: center;
+		justify-content: center;
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+
 	}
 	#name {
 		font-size: 20px;
 	}
+
+	#name-box {
+		flex-direction: column;
+	}
+
+	#logo {
+		width: 15vw;
+	}
 	#wrapper {
-		margin-left: 25px;
+		margin-left: 0px;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
 	}
 	#tabs {
-		margin-right: -75px;
+		margin-left: -20px;
+		align-self: flex-start;
+	}
+	body {
+		width: 100%;
+	}
+
+	#about, #projects {
+		width: 75vw;
+	}
+
+	#footer {
+		padding-bottom: 1vh;
+	}
+
+	.item_box {
+		flex-direction: column;
+		padding: 5vw;
+	}
+
+	.proj-pic {
+		width: 30vw;
+		padding-top: 5vh;
+	}
+
+	.item-reg {
+		text-indent: 20px;
+	}
+	.item-bold{
+		text-indent: 10px;
+	}
+
+	#about {
+		/* text-align: center; */
 	}
 }

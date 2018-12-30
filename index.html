@@ -29,8 +29,8 @@
   <body>
     <div id = "header">
       <div id = "wrapper">
-        <a href = "index.html" style = "display: flex; align-items: center; justify-content:center; text-decoration: none;">
-          <img src="images/v4.jpg" style="width:5vw; padding-right: 1vw;">
+        <a id = "name-box" href = "index.html" style = "display: flex; align-items: center; justify-content:center; text-decoration: none;">
+          <img id = "logo" src="images/v4.jpg">
           <div id = "name"> MADISON COOTS </div>
         </a>
         <div id = "tabs">
@@ -54,48 +54,48 @@
           on problems that ask unconventional questions, particularly those with humanistic inquiries.
         </div>
         <div class = "sub">EDUCATION</div>
-        <div style = "font-weight:500; text-indent: 25px; margin-top: 5px;" class = "item">
+        <div class = "item-bold">
           Stanford University, Class of 2021
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Computer Science, M.S.
         </div>
-        <div style = "font-weight:500; text-indent: 25px; margin-top: 5px;" class = "item">
+        <div class = "item-bold">
           Stanford University, Class of 2019
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Management Science and Engineering, B.S.
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           English, Minor
         </div>
         <div class = "sub">RESEARCH</div>
-        <div style = "font-weight:500; text-indent: 25px; margin-top: 5px;" class = "item">
+        <div class = "item-bold">
           Stanford Center for Spatial and Textual Analysis
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Mapping Old Regimes of Movement, 2016-2018
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Early Modern Mobility: Breton Corvee, 2018
         </div>
         <div class = "sub">PROFESSIONAL EXPERIENCE</div>
-        <div style = "font-weight:500; text-indent: 25px; margin-top: 5px;" class = "item">
+        <div class = "item-bold">
           Lucid
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Head of Data Science, 2017-Present
         </div>
-        <div style = "font-weight:500; text-indent: 25px; margin-top: 5px;" class = "item">
+        <div class = "item-bold">
           United States Government
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Data Science Intern, Summer 2018
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Data Science Intern, Summer 2017
         </div>
-        <div style = "font-weight:300; text-indent: 50px;" class = "item">
+        <div class = "item-reg">
           Systems Engineering Intern, Summer 2017
         </div>
       </div>
@@ -104,6 +104,7 @@
         <div class="subtitle">PROJECTS</div>
         <div class = "title">Some things I've worked on</div>
         <div style="display:flex; flex-direction: column; align-items: center;">
+
           <a href = "files/news_articles.pdf" class="item_box">
             <div class="text_box">
               <div class = "subtitle" style="padding: 0; letter-spacing:0;">
@@ -116,8 +117,9 @@
             	line-height: 1.7em; padding-bottom:1vh;"> M. Coots and G. Rodriguez</div>
               A statistical model that predicts credibility of news articles with approximately 90% accuracy. Given article title and contents, model uses logistic regression to produce a binary prediction of whether the article contains false content.
             </div>
-            <img src="images/newspaper.jpg" style = "width:10vw;">
+            <img src="images/newspaper.jpg" class = "proj-pic">
           </a>
+
           <a href = "https://mighty-earth-35403.herokuapp.com/" class="item_box" >
             <div class="text_box">
               <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
@@ -125,15 +127,26 @@
               </div>
               A quirky web application to encourage the exchange of plant-related advice and knowledge through an open and anonymous user interface.
             </div>
-            <img src="images/flora.jpg" style = "width:10vw;">
+            <img src="images/flora.jpg" class = "proj-pic">
           </a>
+
+          <a href = "files/ethics.pdf" class="item_box" >
+            <div class="text_box">
+              <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
+                HMM, Is This Ethical?
+              </div>
+              <div style="font-family: 'Source Code Pro';
+            	font-size: 12px;
+            	font-weight: 300;
+            	letter-spacing:1px;
+            	line-height: 1.7em; padding-bottom:1vh;"> M. Coots, P. Lu, and L. Wang</div>
+              An augmented hidden Markov model classifier for the purpose of ethics classification in text posts from Reddit in the Unethical Life Protips and Life Pro Tips subreddits.
+            </div>
+            <img src="images/reddit.png" class = "proj-pic">
+          </a>
+
         </div>
       </div>
-
-
-
-
-
 
     </div>
     <div id = "footer" style = "flex-direction: column">
@@ -145,38 +158,6 @@
       </div>
     </div>
 
-      <!--     <section class = "selection-grid">
-      <div id = "b1"></div>
-      <div id = "b2"></div>
-      <div id = "b3"></div>
-    </section> -->
-    <!-- <section class="choice-grid">
-        <div id = "b1"></div>
 
-        <div id = "b2"></div>
-
-        <div id  = "b3"></div>
-
-        <div data-choice-id="sleeping" data-question-id="one">
-        </div>
-
-        <div data-choice-id="dopey" data-question-id="one">
-        </div>
-
-        <div data-choice-id="burger" data-question-id="one">
-        </div>
-
-        <div data-choice-id="cart" data-question-id="one">
-        </div>
-
-        <div data-choice-id="nerd" data-question-id="one">
-        </div>
-
-        <div data-choice-id="shy" data-question-id="one">
-        </div>
-
-        <div data-choice-id="sleepy" data-question-id="one">
-        </div>
-      </section> -->
   </body>
 </html>
