@@ -99,7 +99,7 @@ height: 100%;
 #photo-intro-box {
 	display: flex;
 	flex-direction: row;
-	align-items: flex-end;
+	align-items: center;
 }
 
 #about {
@@ -281,7 +281,7 @@ height: 100%;
 
 	.prof-pic {
 		height:40;
-		padding-right: 0;
+		padding-right: 0vw;
 	}
 
 	.item-reg {
