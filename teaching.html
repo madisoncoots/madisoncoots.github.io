@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teaching – Madison Coots</title>
+    <link rel="icon" href="images/v3.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500|Source+Sans+Pro:200,300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+
+      html { overflow-y: scroll; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── Header ── */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2.8vh 8vw;
+        margin-top: 3vh;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .header-name {
+        font-family: "Raleway", sans-serif;
+        font-size: 35px;
+        font-weight: 200;
+        letter-spacing: 4px;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-pages { display: flex; align-items: center; }
+
+      .nav-external {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: 8px;
+      }
+
+      .nav-link {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        padding: 5px 20px;
+        letter-spacing: 0.5px;
+      }
+      .nav-link:hover { color: #367b8e; }
+      .nav-link.active {
+        color: #367b8e;
+        border-bottom: 1px solid #367b8e;
+      }
+
+      .nav-btn {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        padding: 0.4em 1em;
+        letter-spacing: 0.5px;
+      }
+      .nav-btn:hover {
+        color: #367b8e;
+        border-color: #367b8e;
+      }
+
+      /* ── Main content ── */
+      main {
+        flex: 1;
+        padding: 6vh 8vw 8vh;
+      }
+
+      .page-title {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 35px;
+        font-weight: 250;
+        color: #000;
+        margin: 0 0 2vh 0;
+      }
+
+      .accent {
+        color: #367b8e;
+        font-weight: 700;
+      }
+
+      .page-summary {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #222;
+        line-height: 1.6;
+        margin: 0 0 4vh 0;
+      }
+
+      /* ── Course groups ── */
+      .course-group {
+        margin-bottom: 4vh;
+      }
+
+      .group-label {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #000;
+        padding-bottom: 1.5vh;
+        margin-bottom: 0;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      /* ── Course entries ── */
+      .course-entry {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4vw;
+        padding: 2.5vh 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .course-entry:last-child { border-bottom: none; }
+
+      .course-body { flex: 1; }
+
+      .course-title {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #000;
+        margin-bottom: 0.5vh;
+        line-height: 1.4em;
+      }
+
+      .course-role {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: #367b8e;
+        margin-bottom: 0.7vh;
+      }
+
+      .course-description {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        line-height: 1.65em;
+        color: #444;
+      }
+
+      .course-meta {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: #888;
+        white-space: nowrap;
+        text-align: right;
+        flex-shrink: 0;
+        padding-top: 3px;
+      }
+
+      /* ── Large / external monitor ── */
+      @media (min-width: 1600px) {
+        header { padding: 2.8vh 16vw; }
+        main { padding: 6vh 16vw 8vh; }
+      }
+
+      /* ── Mobile ── */
+      @media (max-width: 1100px) {
+        header {
+          flex-direction: column;
+          align-items: center;
+          padding: 3vh 6vw;
+          margin-top: 2vh;
+          gap: 1.5vh;
+        }
+        .header-name { font-size: 22px; letter-spacing: 3px; }
+        .header-nav { flex-direction: column; align-items: center; gap: 1.5vh; }
+        .nav-pages { justify-content: center; gap: 0; }
+        .nav-external { margin-left: 0; justify-content: center; gap: 8px; }
+        .nav-link { padding: 4px 10px; font-size: 12px; }
+        .nav-btn { font-size: 11px; padding: 0.4em 0.8em; }
+
+        main { padding: 4vh 6vw 6vh; }
+        .page-title { font-size: 28px; margin-bottom: 3vh; }
+
+        .course-entry {
+          flex-direction: column;
+          gap: 0.5vh;
+        }
+        .course-meta {
+          text-align: left;
+          white-space: normal;
+        }
+        .group-label { font-size: 12px; letter-spacing: 2px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <a class="header-name" href="index.html">MADISON COOTS</a>
+      <nav class="header-nav">
+        <div class="nav-pages">
+          <a href="index.html" class="nav-link">About</a>
+          <a href="research.html" class="nav-link">Research</a>
+          <a href="teaching.html" class="nav-link active">Teaching</a>
+        </div>
+        <div class="nav-external">
+          <a href="files/resume.pdf" class="nav-btn" target="_blank" rel="noopener">CV</a>
+          <a href="https://scholar.google.com/citations?user=oJ4aTNcAAAAJ&hl=en&oi=ao" class="nav-btn" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://www.linkedin.com/in/madisoncoots/" class="nav-btn" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-title">Teaching</div>
+
+      <div class="page-summary">
+        I have had the opportunity to teach <span class="accent">statistics</span> and <span class="accent">programming</span> to students from a wide variety of backgrounds, including both <span class="accent">undergraduate</span> and <span class="accent">graduate</span> students in <span class="accent">policy</span> and <span class="accent">engineering</span>. I truly love teaching and strive to make quantitative topics feel accessible and engaging for all students. I am honored to have received the <span class="accent">Dean's Award for Excellence in Student Teaching</span> at Harvard Kennedy School in 2025.
+      </div>
+
+      <div class="course-group">
+        <div class="group-label">Harvard Kennedy School of Government</div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">API 202Z: Quantitative Analysis and Empirical Methods I</div>
+            <div class="course-role">Teaching Fellow</div>
+            <div class="course-description">Advanced statistics course in the MPP core curriculum. Topics included regression analysis and practical skills in data analysis.</div>
+          </div>
+          <div class="course-meta">Spring 2025, Spring 2026</div>
+        </div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">API 203Z: Quantitative Analysis and Empirical Methods II</div>
+            <div class="course-role">Teaching Fellow</div>
+            <div class="course-description">Advanced statistics course in the MPP core curriculum. Topics included policy evaluation, causal inference, and machine learning.</div>
+          </div>
+          <div class="course-meta">Spring 2025</div>
+        </div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">API 201: Quantitative Analysis and Empirical Methods I</div>
+            <div class="course-role">Teaching Fellow</div>
+            <div class="course-description">Introductory statistics course in the MPP core curriculum. Topics included visualizing and summarizing data with R, statistical inference, probability, and decision analysis.</div>
+          </div>
+          <div class="course-meta">Fall 2024, Fall 2025</div>
+        </div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">DPI 681M: The Science and Implications of Generative AI</div>
+            <div class="course-role">Teaching Fellow</div>
+            <div class="course-description">Elective course for graduate-level policy students. Designed and taught the technical complement to the course covering language models, deep learning models, and transformers.</div>
+          </div>
+          <div class="course-meta">Spring 2024</div>
+        </div>
+
+      </div>
+
+      <div class="course-group">
+        <div class="group-label">Stanford University</div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">Stanford Code in Place</div>
+            <div class="course-role">Section Leader</div>
+            <div class="course-description">Part of a teaching team for Code in Place, offered by Stanford during the COVID-19 pandemic, with 10,000 global students and 900 volunteer teachers. Prepared and taught a weekly discussion section of 10–12 students in a 5-week introductory online Python programming course.</div>
+          </div>
+          <div class="course-meta">Spring 2020</div>
+        </div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">MS&amp;E 125: Applied Statistics</div>
+            <div class="course-role">Course Assistant</div>
+            <div class="course-description">Introductory statistics course in the core curriculum for undergraduate engineering students. Topics included exploring and summarizing data with R, statistical inference, linear and logistic regression models.</div>
+          </div>
+          <div class="course-meta">Winter 2020</div>
+        </div>
+
+        <div class="course-entry">
+          <div class="course-body">
+            <div class="course-title">MS&amp;E 252: Foundations of Decision Analysis</div>
+            <div class="course-role">Course Assistant</div>
+            <div class="course-description">Course in decision analysis for graduate and undergraduate students in engineering. Topics included utility theory, sensitivity analysis, and value of information analysis. Recognized by the Stanford Center for Professional Development for excellence in teaching.</div>
+          </div>
+          <div class="course-meta">Fall 2019</div>
+        </div>
+
+      </div>
+    </main>
+
+  </body>
+</html>

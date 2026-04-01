@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Research – Madison Coots</title>
+    <link rel="icon" href="images/v3.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500|Source+Sans+Pro:200,300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+
+      html { overflow-y: scroll; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── Header ── */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2.8vh 8vw;
+        margin-top: 3vh;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .header-name {
+        font-family: "Raleway", sans-serif;
+        font-size: 35px;
+        font-weight: 200;
+        letter-spacing: 4px;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-pages { display: flex; align-items: center; }
+
+      .nav-external {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: 8px;
+      }
+
+      .nav-link {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        padding: 5px 20px;
+        letter-spacing: 0.5px;
+      }
+      .nav-link:hover { color: #367b8e; }
+      .nav-link.active {
+        color: #367b8e;
+        border-bottom: 1px solid #367b8e;
+      }
+
+      .nav-btn {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        padding: 0.4em 1em;
+        letter-spacing: 0.5px;
+      }
+      .nav-btn:hover {
+        color: #367b8e;
+        border-color: #367b8e;
+      }
+
+      /* ── Main content ── */
+      main {
+        flex: 1;
+        padding: 6vh 8vw 8vh;
+      }
+
+      .page-title {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 35px;
+        font-weight: 250;
+        color: #000;
+        margin: 0 0 2vh 0;
+      }
+
+      .page-summary {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #222;
+        line-height: 1.6;
+        margin: 0 0 4vh 0;
+      }
+
+      .accent {
+        color: #367b8e;
+        font-weight: 700;
+      }
+
+      /* ── Paper entries ── */
+      .paper-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .paper-entry {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4vw;
+        padding: 3vh 0;
+        border-bottom: 1px solid #f0f0f0;
+        text-decoration: none;
+        color: inherit;
+      }
+      .paper-entry:first-child { border-top: 1px solid #f0f0f0; }
+      .paper-entry:hover .paper-title { color: #367b8e; }
+
+      .paper-body { flex: 1; }
+
+      .paper-title {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        color: #367b8e;
+        margin-bottom: 0.8vh;
+        line-height: 1.4em;
+        transition: color 0.15s;
+      }
+
+      .paper-authors {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: #222;
+        margin-bottom: 0.8vh;
+        line-height: 1.5em;
+      }
+
+      .paper-description {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        line-height: 1.7em;
+        color: #444;
+      }
+
+      .paper-venue {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: #367b8e;
+        white-space: nowrap;
+        text-align: right;
+        flex-shrink: 0;
+        padding-top: 3px;
+      }
+
+      /* ── Large / external monitor ── */
+      @media (min-width: 1600px) {
+        header { padding: 2.8vh 16vw; }
+        main { padding: 6vh 16vw 8vh; }
+      }
+
+      /* ── Mobile ── */
+      @media (max-width: 1100px) {
+        header {
+          flex-direction: column;
+          align-items: center;
+          padding: 3vh 6vw;
+          margin-top: 2vh;
+          gap: 1.5vh;
+        }
+        .header-name { font-size: 22px; letter-spacing: 3px; }
+        .header-nav { flex-direction: column; align-items: center; gap: 1.5vh; }
+        .nav-pages { justify-content: center; gap: 0; }
+        .nav-external { margin-left: 0; justify-content: center; gap: 8px; }
+        .nav-link { padding: 4px 10px; font-size: 12px; }
+        .nav-btn { font-size: 11px; padding: 0.4em 0.8em; }
+
+        main { padding: 4vh 6vw 6vh; }
+        .page-title { font-size: 28px; margin-bottom: 3vh; }
+
+        .paper-entry {
+          flex-direction: column;
+          gap: 1vh;
+        }
+        .paper-venue {
+          text-align: left;
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <a class="header-name" href="index.html">MADISON COOTS</a>
+      <nav class="header-nav">
+        <div class="nav-pages">
+          <a href="index.html" class="nav-link">About</a>
+          <a href="research.html" class="nav-link active">Research</a>
+          <a href="teaching.html" class="nav-link">Teaching</a>
+        </div>
+        <div class="nav-external">
+          <a href="files/resume.pdf" class="nav-btn" target="_blank" rel="noopener">CV</a>
+          <a href="https://scholar.google.com/citations?user=oJ4aTNcAAAAJ&hl=en&oi=ao" class="nav-btn" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://www.linkedin.com/in/madisoncoots/" class="nav-btn" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-title">Research</div>
+
+      <div class="page-summary">
+        My research develops frameworks and computational methods for studying <span class="accent">fairness</span> and <span class="accent">inequality</span> in decision-making systems, both <span class="accent">algorithmic</span> and <span class="accent">human</span>. I work across a range of domains, including <span class="accent">healthcare</span>, <span class="accent">lending</span>, and <span class="accent">criminal justice</span>. 
+      </div>
+      <div class="paper-list">
+
+        <a href="https://arxiv.org/pdf/2512.20753" class="paper-entry" target="_blank" rel="noopener">
+          <div class="paper-body">
+            <div class="paper-title">A Profit-Based Measure of Lending Discrimination</div>
+            <div class="paper-authors"><b>M. Coots</b>, R. Bartlett, J. Nyarko, and S. Goel</div>
+            <div class="paper-description">We introduce a profit-based measure of lending discrimination in loan pricing and apply it to approximately 80,000 personal loans from a major U.S. fintech platform.</div>
+          </div>
+          <div class="paper-venue">Working paper</div>
+        </a>
+
+        <a href="files/race_and_disease_risk.pdf" class="paper-entry" target="_blank" rel="noopener">
+          <div class="paper-body">
+            <div class="paper-title">A Framework for Considering the Value of Race and Ethnicity in Estimating Disease Risk</div>
+            <div class="paper-authors"><b>M. Coots</b>, S. Saghafian, D. Kent, and S. Goel</div>
+            <div class="paper-description">We show that incorporating race and ethnicity into disease risk predictions substantially improves statistical accuracy, but that these statistical benefits lead to surprisingly modest gains in clinical utility.</div>
+          </div>
+          <div class="paper-venue"><i>Annals of Internal Medicine</i>, 2024</div>
+        </a>
+
+        <a href="files/racial_bias_healthcare.pdf" class="paper-entry" target="_blank" rel="noopener">
+          <div class="paper-body">
+            <div class="paper-title">Racial Bias in Clinical and Population Health Algorithms: A Critical Review of Current Debates</div>
+            <div class="paper-authors"><b>M. Coots</b>, K. Linn, S. Goel, A. Navathe, and R. Parikh</div>
+            <div class="paper-description">We develop a taxonomy of concerns over the fairness of healthcare algorithms and critically examine seven prominent and controversial healthcare algorithms, offering a consequentialist framework for algorithm design.</div>
+          </div>
+          <div class="paper-venue"><i>Annual Review of Public Health</i>, 2025</div>
+        </a>
+
+        <a href="files/court_reminders.pdf" class="paper-entry" target="_blank" rel="noopener">
+          <div class="paper-body">
+            <div class="paper-title">Automated Court Date Reminders Reduce Warrants for Arrest: Evidence from a Text Messaging Experiment</div>
+            <div class="paper-authors">A. Chohlas-Wood, <b>M. Coots</b>, J. Nudell, J. Nyarko, E. Brunskill, T. Rogers, and S. Goel</div>
+            <div class="paper-description">Results from a large field experiment showing that automated text message reminders reduced warrants for arrest issued for missing court by over 20%.</div>
+          </div>
+          <div class="paper-venue"><i>Science Advances</i>, 2025</div>
+        </a>
+
+        <a href="files/ltbf.pdf" class="paper-entry" target="_blank" rel="noopener">
+          <div class="paper-body">
+            <div class="paper-title">Learning to be Fair: A Consequentialist Approach to Equitable Decision Making</div>
+            <div class="paper-authors">A. Chohlas-Wood, <b>M. Coots</b>, H. Zhu, E. Brunskill, and S. Goel</div>
+            <div class="paper-description">A new theoretical framework for how to efficiently allocate limited resources to people in an equitable way.</div>
+          </div>
+          <div class="paper-venue"><i>Management Science</i>, 2024</div>
+        </a>
+
+        <a href="files/equitable_algorithms.pdf" class="paper-entry" target="_blank" rel="noopener">
+          <div class="paper-body">
+            <div class="paper-title">Designing Equitable Algorithms</div>
+            <div class="paper-authors">A. Chohlas-Wood*, <b>M. Coots*</b>, J. Nyarko*, and S. Goel* &nbsp;&nbsp; <i>*Authors contributed equally</i></div>
+            <div class="paper-description">A discussion of the apparent conflicts between formal algorithmic fairness constraints and equitable outcomes, with approaches for practitioners designing more equitable algorithms.</div>
+          </div>
+          <div class="paper-venue"><i>Nature Computational Science</i>, 2023</div>
+        </a>
+
+      </div>
+    </main>
+
+  </body>
+</html>

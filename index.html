@@ -1,184 +1,363 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-      <script>
-          $(document).ready(function (){
-              $("#about_tab").click(function (){
-                  $('html, body').animate({
-                      scrollTop: $("#about").offset().top
-                  }, 400);
-              });
-          });
-          $(document).ready(function (){
-              $("#proj_tab").click(function (){
-                  $('html, body').animate({
-                      scrollTop: $("#projects").offset().top
-                  }, 1300);
-              });
-          });
-  </script>
   <head>
     <meta charset="utf-8">
     <title>Madison Coots</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel = "icon" href = "images/v3.png" type = "image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500|Source+Sans+Pro:200,300,400,600" rel="stylesheet">
-    <meta name="google-site-verification" content="kMHnlQN4KPwOoD0LJwSwKE3XijPNkJ6Oijyjb4JE-bo" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+
+      html { overflow-y: scroll; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── Header ── */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2.8vh 8vw;
+        margin-top: 3vh;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .header-name {
+        font-family: "Raleway", sans-serif;
+        font-size: 35px;
+        font-weight: 200;
+        letter-spacing: 4px;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-pages {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-external {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: 8px;
+      }
+
+      .nav-link {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        padding: 5px 20px;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-link:hover { color: #367b8e; }
+
+      .nav-link.active {
+        color: #367b8e;
+        border-bottom: 1px solid #367b8e;
+      }
+
+      .nav-btn {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        padding: 0.4em 1em;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-btn:hover {
+        color: #367b8e;
+        border-color: #367b8e;
+      }
+
+      /* ── Main two-column layout ── */
+      main {
+        flex: 1;
+        display: flex;
+        gap: 4vw;
+        padding: 7vh 8vw 8vh;
+        align-items: flex-start;
+      }
+
+      /* ── Left column: photo + bio ── */
+      .left-col {
+        flex: 1.4;
+        display: flex;
+        flex-direction: row;
+        gap: 2.5vw;
+        align-items: flex-start;
+      }
+
+      .prof-pic-wrapper {
+        width: 220px;
+        flex-shrink: 0;
+      }
+
+      .prof-pic-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .bio-text {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .bio-greeting {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 35px;
+        font-weight: 250;
+        color: #000;
+        margin: 0 0 2vh 0;
+      }
+
+      .bio-body {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 14px;
+        font-weight: 450;
+        line-height: 1.75em;
+        letter-spacing: 0.5px;
+        color: #222;
+      }
+
+      .bio-body p { margin: 0 0 2vh 0; }
+
+      .bio-link {
+        color: #367b8e;
+        text-decoration: none;
+      }
+      .bio-link:hover { font-weight: 400; }
+
+      .ext-links {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 1vh;
+      }
+
+      .ext-btn {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 400;
+        color: #000;
+        border: 1px solid #000;
+        padding: 0.45em 1.2em;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+      }
+      .ext-btn:hover {
+        color: #367b8e;
+        border-color: #367b8e;
+      }
+
+      /* ── Right column: news & updates ── */
+      .right-col {
+        flex: 0 0 320px;
+        border-left: 1px solid #e8e8e8;
+        padding-left: 3vw;
+      }
+
+      .section-label {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #000;
+        padding-bottom: 1.5vh;
+        margin-bottom: 1vh;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .news-item {
+        padding: 1.8vh 0;
+        border-bottom: 1px solid #f2f2f2;
+      }
+      .news-item:last-child { border-bottom: none; }
+
+      .news-date {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        color: #367b8e;
+        margin-bottom: 0.6vh;
+        text-transform: uppercase;
+      }
+
+      .news-text {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 13px;
+        font-weight: 450;
+        line-height: 1.65em;
+        letter-spacing: 0.3px;
+        color: #333;
+      }
+      .news-text a {
+        color: #367b8e;
+        text-decoration: none;
+      }
+      .news-text a:hover { text-decoration: underline; }
+
+      /* ── Large / external monitor ── */
+      @media (min-width: 1600px) {
+        header { padding: 2.8vh 16vw; }
+        main { padding: 7vh 16vw 8vh; }
+      }
+
+      /* ── Mobile ── */
+      @media (max-width: 1100px) {
+        header {
+          flex-direction: column;
+          align-items: center;
+          padding: 3vh 6vw;
+          margin-top: 2vh;
+          gap: 1.5vh;
+        }
+        .header-name { font-size: 22px; letter-spacing: 3px; }
+        .header-nav {
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5vh;
+        }
+        .nav-pages { justify-content: center; gap: 0; }
+        .nav-external { margin-left: 0; justify-content: center; gap: 8px; }
+        .nav-link { padding: 4px 10px; font-size: 12px; }
+        .nav-btn { font-size: 11px; padding: 0.4em 0.8em; }
+
+        main {
+          flex-direction: column;
+          padding: 4vh 6vw 6vh;
+          gap: 4vh;
+        }
+
+        .left-col {
+          flex-direction: column;
+          align-items: center;
+          gap: 2vh;
+        }
+        .prof-pic-wrapper { width: 160px; }
+        .bio-greeting { font-size: 24px; }
+        .bio-body { font-size: 13px; }
+
+        .right-col {
+          flex: none;
+          width: 100%;
+          border-left: none;
+          border-top: 1px solid #e8e8e8;
+          padding-left: 0;
+          padding-top: 3vh;
+        }
+      }
+
+      /* ── Tablet: restore desktop font sizes ── */
+      @media (min-width: 600px) and (max-width: 1100px) {
+        .header-name { font-size: 35px; letter-spacing: 4px; }
+        .bio-greeting { font-size: 35px; }
+      }
+    </style>
   </head>
   <body>
-    <div id = "header">
-      <div id = "wrapper">
-        <a id = "name-box" href = "index.html" style = "display: flex; align-items: center; justify-content:center; text-decoration: none;">
-          <img id = "logo" src="images/v4.jpg">
-          <div id = "name"> MADISON COOTS </div>
-        </a>
-        <div id = "tabs">
-          <div class = tab id = 'about_tab'> About </div>
-          <div class = tab id = 'proj_tab'> Projects </div>
-          <a href = "files/resume.pdf" class = resume> CV </a>
-        </div>
-      </div>
-    </div>
-    <div id = "content">
 
-      <div id = "about">
-        <div class="subtitle">ABOUT</div>
-        <div id = "photo-intro-box">
-          <img src="images/me.jpg" class = "prof-pic">
-          <div id = "text-box">
-            <div class = "title">Hi there,</div>
-            <div class = "blurb"> 
-              Thanks for stopping by! My name is Madison Coots and I am a fourth year Ph.D. student in Public Policy at the <a href = "https://www.hks.harvard.edu" class = "link"> Harvard Kennedy School of Government</a> and a <a href = "https://inequality.hks.harvard.edu" class = "link">Stone Ph.D. Scholar</a> in Inequality and Wealth Concentration. I am also a researcher at the <a href = "https://policylab.hks.harvard.edu" class = "link">Computational Policy Lab</a>. My research interests lie in algorithmic fairness and the evaluation of AI systems that are deployed in high-stakes contexts, including healthcare, lending, and criminal justice.
-            </div>
-            <div class = "blurb" style = "padding-bottom: 2vh;">
-              Outside of academics, I have expereince working as a data scientist in industry, academia, and the public sector. Before beginning my Ph.D., I studied computer science and AI (M.S.), management science and engineering (B.S.), and English literature (minor) at Stanford.
+    <header>
+      <a class="header-name" href="index.html">MADISON COOTS</a>
+      <nav class="header-nav">
+        <div class="nav-pages">
+          <a href="index.html" class="nav-link active">About</a>
+          <a href="research.html" class="nav-link">Research</a>
+          <a href="teaching.html" class="nav-link">Teaching</a>
+        </div>
+        <div class="nav-external">
+          <a href="files/resume.pdf" class="nav-btn" target="_blank" rel="noopener">CV</a>
+          <a href="https://scholar.google.com/citations?user=oJ4aTNcAAAAJ&hl=en&oi=ao" class="nav-btn" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://www.linkedin.com/in/madisoncoots/" class="nav-btn" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- Left: photo + bio -->
+      <div class="left-col">
+        <div class="prof-pic-wrapper">
+          <img src="images/me.jpg" alt="Madison Coots">
+        </div>
+        <div class="bio-text">
+          <div class="bio-greeting">Hi there,</div>
+          <div class="bio-body">
+            <p>
+              Thanks for stopping by! I am a fourth year Ph.D. candidate in Public Policy at the <a href="https://www.hks.harvard.edu" class="bio-link">Harvard Kennedy School of Government</a> and a <a href="https://inequality.hks.harvard.edu" class="bio-link">Stone Ph.D. Scholar</a> in Inequality and Wealth Concentration. I am also a researcher at the <a href="https://policylab.hks.harvard.edu" class="bio-link">Computational Policy Lab</a>. My research interests lie in algorithmic fairness, inequality, and the evaluation of both AI and human decision-making across a variety of domains, including in healthcare, lending, and criminal justice.
+            </p>
+            <p>
+              Before beginning my Ph.D., I studied computer science and AI (M.S.), management science and engineering (B.S.), and English literature (minor) at Stanford.
+            </p>
+            <p>
+              I am on the academic job market for 2026-2027.
+            </p>
+            <div class="ext-links">
+              <a href="files/resume.pdf" class="ext-btn" target="_blank" rel="noopener">Academic CV</a>
+              <a href="https://scholar.google.com/citations?user=oJ4aTNcAAAAJ&hl=en&oi=ao" class="ext-btn" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://www.linkedin.com/in/madisoncoots/" class="ext-btn" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- Right: news & updates -->
+      <div class="right-col">
+        <div class="section-label">News &amp; Updates</div>
 
-      <div id = "projects">
-        <div class="subtitle">PROJECTS</div>
-        <div class = "title">Some things I've worked on</div>
-        <div style="display:flex; flex-direction: column; align-items: center;">
+        <!-- ── Add or edit news items below ── -->
 
-      <a href = "https://arxiv.org/pdf/2512.20753" class="item_box" >
-            <div class="text_box">
-              <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
-                A Profit-Based Measure of Lending Discrimination
-              </div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> <b>M. Coots</b>, R. Bartlett, J. Nyarko, and S. Goel</div>
-              We introduce a profit-based measure of lending discrimination in loan pricing and apply it to approximately 80,000 personal loans from a major U.S. fintech platform.
-              <div style="padding-top:1vh;"> <i>Working paper.</i></div>
-            </div>
-            <img src="images/lending.svg" class = "proj-pic">
-          </a>
-
-        <a href = "files/race_and_disease_risk.pdf" class="item_box" >
-            <div class="text_box">
-              <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
-                A Framework for Considering the Value of Race and Ethnicity in Estimating Disease Risk
-              </div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> <b>M. Coots</b>, S. Saghafian, D. Kent, and S. Goel</div>
-              We show that incorporating race and ethnicity into disease risk predictions substantially improves statistical accuracy, confirming past analyses, but show that these statistical benefits lead to surprisingly modest gains in clinical utility. 
-              <div style="padding-top:1vh;"> <i>Annals of Internal Medicine (2024).</i></div>
-            </div>
-            <img src="images/diabetes.png" class = "proj-pic">
-          </a>
-
-          <a href = "files/racial_bias_healthcare.pdf" class="item_box" >
-            <div class="text_box">
-              <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
-                Racial Bias in Clinical and Population Health Algorithms: A Critical Review of Current Debates
-              </div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> <b>M. Coots</b>, K. Linn, S. Goel, A. Navathe, and R. Parikh</div>
-              We develop a taxonomy of concerns over the fairness of healthcare algorithms and critically examine seven prominent and controversial healthcare algorithms. We show that popular approaches that aim to improve the fairness of healthcare algorithms can in fact worsen outcomes for individuals and, in turn, offer an alternative, consequentialist framework for algorithm design that mitigates these harms. 
-              <div style="padding-top:1vh;"> <i>Annual Review of Public Health (2025).</i></div>
-            </div>
-            <img src="images/bias_healthcare.svg" class = "proj-pic">
-          </a>
-
-          <a href = "files/court_reminders.pdf" class="item_box" >
-            <div class="text_box">
-              <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
-                Automated Court Date Reminders Reduce Warrants for Arrest: Evidence from a Text Messaging Experiment
-              </div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> A. Chohlas-Wood, <b>M. Coots</b>, J. Nudell, J. Nyarko, E. Brunskill, T. Rogers, and S. Goel</div>
-              Results from a large field experiment in partnership with the Santa Clara County Public Defender Office that show that automated text message reminders reduced the number of warrants for arrest issued for missing court by over 20%. 
-              <div style="padding-top:1vh;"> <i>Science Advances</i> (2025).</div>
-            </div>
-            <img src="images/texts.png" class = "proj-pic">
-          </a>
-
-          <a href = "files/ltbf.pdf" class="item_box" >
-            <div class="text_box">
-              <div class = "subtitle" style="padding-bottom: 1vh; padding-top:0; letter-spacing:0;">
-                Learning to be Fair: A Consequentialist Approach to Equitable Decision Making
-              </div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> A. Chohlas-Wood, <b>M. Coots</b>, H. Zhu, E. Brunskill, and S. Goel</div>
-              A new theoretical framework for how to efficiently allocate limited resources to people in an equitable way. 
-              <div style="padding-top:1vh;"> <i>Management Science (2024).</i></div>
-            </div>
-            <img src="images/fair.svg" class = "proj-pic">
-          </a>
-
-          <a href = "files/equitable_algorithms.pdf" class="item_box">
-            <div class="text_box">
-              <div class = "subtitle" style="padding: 0; letter-spacing:0;">
-                Designing Equitable Algorithms
-              </div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> A. Chohlas-Wood*, <b>M. Coots*</b>, J. Nyarko*, and S. Goel*</div>
-              <div style="font-family: 'Source Code Pro';
-              font-size: 12px;
-              font-weight: 300;
-              letter-spacing:1px;
-              line-height: 1.7em; padding-bottom:1vh;"> <i>*Authors contributed equally.</i></div>
-                A discussion about the apparent conflicts between formal algorithmic fairness constraints and equitable outcomes, and approaches for practitioners to use in designing more equitable algorithms. 
-                <div style="padding-top:1vh;"> <i>Nature Computational Science (2023).</i></div>
-            </div>
-            <img src="images/algorithms.svg" class = "proj-pic">
-          </a>
-
-
+        <div class="news-item">
+          <div class="news-date">Mar 2026</div>
+          <div class="news-text">Excited to attend the IOE-ISyE-MS&amp;E Rising Stars Workshop and give a talk about my recent research in lending discrimination.</div>
         </div>
+
+        <div class="news-item">
+          <div class="news-date">Dec 2025</div>
+          <div class="news-text">Released new working paper: <a href="https://arxiv.org/pdf/2512.20753">A Profit-Based Measure of Lending Discrimination.</a></div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">May 2025</div>
+          <div class="news-text">Honored to receive the Harvard Kennedy School Dean's Award for Excellence in Student Teaching.</div>
+        </div>
+
+        <!-- <div class="news-item">
+          <div class="news-date">2025</div>
+          <div class="news-text">New paper in <i>Science Advances</i>: <a href="files/court_reminders.pdf">Automated Court Date Reminders Reduce Warrants for Arrest.</a></div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          <div class="news-text">New paper in <i>Annual Review of Public Health</i>: <a href="files/racial_bias_healthcare.pdf">Racial Bias in Clinical and Population Health Algorithms.</a></div>
+        </div> -->
+
       </div>
 
-    </div>
-    <div id = "footer" style = "flex-direction: column">
-      <div id = "wrapper" style = "justify-content: center; margin-bottom: 4px;">
-        Madison Coots 2026
-      </div>
-      <div id = "wrapper" style = "justify-content: center">
-        Special thanks to Margaux Giles for the amazing logo design
-      </div>
-    </div>
-
+    </main>
 
   </body>
 </html>

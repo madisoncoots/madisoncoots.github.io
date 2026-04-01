@@ -1,298 +1,454 @@
 body {
--webkit-font-smoothing: antialiased;
--moz-font-smoothing: antialiased;
--o-font-smoothing: antialiased;
-margin: 0;
-width: 100%;
-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: BLACK;
-	height: 90px;
-	width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: BLACK;
+  height: 90px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 #wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 65vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 78vw;
 }
 
 #name {
-	font-family: 'Source Sans Pro';
-	font-size: 30px;
-	color: WHITE;
-	font-weight: 200;
-	margin: 0;
-	letter-spacing: 3px;
+  font-family: 'Source Sans Pro';
+  font-size: 30px;
+  color: WHITE;
+  font-weight: 200;
+  margin: 0;
+  letter-spacing: 3px;
 }
 
 #logo {
-	width:5vw;
-	padding-right: 1vw;
-	max-height: 90px;
-}
-
-.tab {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	color: WHITE;
-	font-weight: lighter;
-	margin: 10px;
-	cursor: pointer;
-}
-
-.tab:hover {
-	/* color: #063d4c; */
-	color: #367b8e;
-}
-
-.resume:hover {
-	color: #367b8e;
-	outline: 1px solid #367b8e;
+  width: 5vw;
+  padding-right: 1vw;
+  max-height: 90px;
 }
 
 #tabs {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 25vw;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tab {
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  color: WHITE;
+  font-weight: lighter;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tab:hover {
+  color: #367b8e;
+}
+
+.tab.active {
+  color: #367b8e;
+  border-bottom: 1px solid #367b8e;
+}
+
+.nav-divider {
+  color: #444;
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: lighter;
+  padding: 0 2px;
+  user-select: none;
 }
 
 .resume {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	color: WHITE;
-	font-weight: lighter;
-	outline: 1px solid white;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	padding-left: 2em;
-	padding-right: 2em;
-	margin: 10px;
-	text-decoration: none;
+  font-family: 'Source Code Pro';
+  font-size: 12px;
+  color: WHITE;
+  font-weight: lighter;
+  outline: 1px solid white;
+  padding: 0.45em 1em;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.resume:hover {
+  color: #367b8e;
+  outline: 1px solid #367b8e;
 }
 
 .link {
-	text-decoration: none;
-	color: #367b8e;
+  text-decoration: none;
+  color: #367b8e;
 }
 
 .link:hover {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 10vh;
-	width: 100%;
-	height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10vh;
+  width: 100%;
+  flex: 1;
 }
 
 #photo-intro-box {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #about {
-	width: 65vw;
+  width: 65vw;
 }
 
-#projects {
-	width: 65vw;
+#research {
+  width: 65vw;
+}
+
+#teaching {
+  width: 65vw;
 }
 
 .subtitle {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	font-weight: 500;
-	letter-spacing: 3px;
-	padding-bottom: 1vh;
-	padding-top: 7vh;
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  padding-bottom: 1vh;
+  padding-top: 7vh;
 }
 
 .title {
-	font-family: 'Source Sans Pro';
-	font-size: 40px;
-	font-weight: 300;
-	padding-bottom: 2.5vh;
+  font-family: 'Source Sans Pro';
+  font-size: 40px;
+  font-weight: 300;
+  padding-bottom: 2.5vh;
 }
 
 .blurb {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing:1px;
-	line-height: 1.7em;
-	padding-bottom: 3vh;
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.7em;
+  padding-bottom: 3vh;
+}
+
+/* External link buttons in the about body (CV, Scholar, LinkedIn) */
+.ext-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 0.5vh;
+  padding-bottom: 3vh;
+}
+
+.ext-btn {
+  font-family: 'Source Code Pro';
+  font-size: 12px;
+  color: black;
+  font-weight: 400;
+  outline: 1px solid black;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.ext-btn:hover {
+  outline: 2px solid #367b8e;
+  color: #367b8e;
 }
 
 .sub {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	font-weight: 600;
-	letter-spacing: 3px;
-	display: inline-block;
-	border-bottom: 3px solid #e1eeef;
-	padding-top: 1vh;
-	margin-bottom: 1vh;
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  display: inline-block;
+  border-bottom: 3px solid #e1eeef;
+  padding-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .item-reg {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing:1px;
-	line-height: 1.7em;
-	font-weight:300;
-	text-indent: 50px;
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.7em;
+  font-weight: 300;
+  text-indent: 50px;
 }
 
 .item-bold {
-	font-family: 'Source Code Pro';
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing:1px;
-	line-height: 1.7em;
-	font-weight:500;
-	text-indent: 25px;
-	margin-top: 5px;
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.7em;
+  font-weight: 500;
+  text-indent: 25px;
+  margin-top: 5px;
 }
 
 .item_box {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 55vw;
-	outline: 1px solid #e1eeef;
-	padding: 1vw;
-	margin-bottom: 5vh;
-	text-decoration: none;
-	color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 55vw;
+  outline: 1px solid #e1eeef;
+  padding: 1vw;
+  margin-bottom: 5vh;
+  text-decoration: none;
+  color: black;
 }
 
 .text_box {
-	display: flex;
-	flex-direction: column;
-	align-self: flex-start;
-	font-family: 'Source Code Pro';
-	font-size: 12px;
-	font-weight: 300;
-	letter-spacing:1px;
-	line-height: 1.7em;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  font-family: 'Source Code Pro';
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.7em;
 }
 
 .item_box:hover {
-	outline: 3px solid #e1eeef;
+  outline: 3px solid #e1eeef;
 }
 
 .proj-pic {
-	width:10vw;
-	padding-left: 2vw;
+  width: 10vw;
+  padding-left: 2vw;
+}
+
+.prof-pic-wrapper {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 2vw;
+  margin-bottom: 3vh;
 }
 
 .prof-pic {
-	height:49vh;
-	width: auto;
-	padding-right: 2vw;
-	padding-bottom: 3vh;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Teaching page course entries */
+.teaching-intro {
+  font-family: 'Source Code Pro';
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.7em;
+  padding-bottom: 4vh;
+  color: #333;
+}
+
+.course-group {
+  margin-bottom: 5vh;
+}
+
+.course-group-label {
+  font-family: 'Source Code Pro';
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #367b8e;
+  text-transform: uppercase;
+  padding-bottom: 1.5vh;
+  border-bottom: 1px solid #e1eeef;
+  margin-bottom: 2vh;
+}
+
+.course-entry {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.course-entry:last-child {
+  border-bottom: none;
+}
+
+.course-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0.5vh;
+}
+
+.course-title {
+  font-family: 'Source Sans Pro';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.course-meta {
+  font-family: 'Source Code Pro';
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #367b8e;
+  white-space: nowrap;
+}
+
+.course-role {
+  font-family: 'Source Code Pro';
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 1vh;
+}
+
+.course-description {
+  font-family: 'Source Code Pro';
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.7em;
+  color: #333;
 }
 
 #footer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #e1eeef;
-	height: 50px;
-	color: black;
-	font-family: 'Source Code Pro';
-	font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e1eeef;
+  height: 50px;
+  color: black;
+  font-family: 'Source Code Pro';
+  font-size: 10px;
+  margin-top: auto;
 }
 
 @media (max-width: 450px) {
-	body {
-		width: 375px;;
-	}
-	#header {
-		justify-content: space-between;
-		width: auto;
-		height: auto;
-		align-items: center;
-		justify-content: center;
-		padding-top: 2vh;
-		padding-bottom: 2vh;
+  #header {
+    justify-content: center;
+    width: auto;
+    height: auto;
+    align-items: center;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
 
-	}
-	#name {
-		font-size: 20px;
-	}
+  #name {
+    font-size: 20px;
+  }
 
-	#name-box {
-		flex-direction: column;
-	}
+  #name-box {
+    flex-direction: column;
+  }
 
-	#logo {
-		width: 15vw;
-	}
-	#wrapper {
-		margin-left: 0px;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-	#tabs {
-		margin-left: -20px;
-		align-self: flex-start;
-	}
-	body {
-		width: 100%;
-	}
+  #logo {
+    width: 15vw;
+    padding-right: 0;
+    padding-bottom: 0.5vh;
+  }
 
-	#about, #projects {
-		width: 75vw;
-	}
+  #wrapper {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+    gap: 8px;
+  }
 
-	#footer {
-		padding-bottom: 1vh;
-	}
+  #tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+  }
 
-	#photo-intro-box {
-		flex-direction: column-reverse;
-	}
+  .tab {
+    font-size: 13px;
+    padding: 4px 8px;
+  }
 
+  .resume {
+    font-size: 11px;
+    padding: 0.4em 0.8em;
+    margin: 3px;
+  }
 
-	.item_box {
-		flex-direction: column;
-		padding: 5vw;
-	}
+  #about, #research, #teaching {
+    width: 85vw;
+  }
 
-	.proj-pic {
-		width: 30vw;
-		padding-top: 5vh;
-	}
+  #footer {
+    height: auto;
+    padding: 1vh 0;
+  }
 
-	.prof-pic {
-		height:40;
-		padding-right: 0vw;
-	}
+  #photo-intro-box {
+    flex-direction: column-reverse;
+  }
 
-	.item-reg {
-		text-indent: 20px;
-	}
-	.item-bold{
-		text-indent: 10px;
-	}
+  .item_box {
+    flex-direction: column;
+    padding: 5vw;
+    width: auto;
+  }
 
-	#about {
-		/* text-align: center; */
-	}
+  .proj-pic {
+    width: 30vw;
+    padding-top: 5vh;
+    padding-left: 0;
+  }
+
+  .prof-pic-wrapper {
+    width: 55vw;
+    height: 55vw;
+    margin-top: 2vh;
+    margin-right: 0;
+  }
+
+  .item-reg {
+    text-indent: 20px;
+  }
+
+  .item-bold {
+    text-indent: 10px;
+  }
+
+  .ext-links-row {
+    justify-content: flex-start;
+  }
+
+  .course-header {
+    flex-direction: column;
+    gap: 2px;
+  }
 }
